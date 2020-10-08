@@ -2,15 +2,17 @@ import React from 'react';
 import { auth } from './../services/db'
 
 export const Message = (props) => {
-    const { text, uid } = props;
+    const { text, uid, displayName } = props;
 
-    console.log(props)
-
-    const msgClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+    const ownMsg = uid === auth.currentUser.uid;
+    const msgClass = ownMsg ? 'sent' : 'received';
 
     return (
-        <div className={`message ${msgClass}`}> 
-            <p>{text}</p>
+        <div className={`message ${msgClass}`}>
+            <p className="message-text">
+                {ownMsg ? null : <div className="">{displayName}</div>}
+                {text}
+            </p>
         </div>
     )
 }

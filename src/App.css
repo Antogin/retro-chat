@@ -54,7 +54,7 @@ main::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
-form {
+.chat-form {
   height: 10vh;
   position: fixed;
   bottom: 0;
@@ -136,14 +136,26 @@ p {
   flex-direction: row-reverse;
 }
 
+.sent span {
+  position: absolute;
+}
+
 .sent p {
   color: white;
   background: #0b93f6;
   align-self: flex-end;
+  
 }
 .received p {
   background: #e5e5ea;
   color: black;
+  padding: 10px 10px;
+  text-align: initial;
+}
+
+.received p div {
+ font-size: 10px;
+
 }
 
 img {

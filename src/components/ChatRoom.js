@@ -19,10 +19,11 @@ export const ChatRoom = () => {
     const sendMessage = async (e) => {
         e.preventDefault()
 
-        const { uid } = auth.currentUser;
+        const { uid, displayName } = auth.currentUser;
 
         await msgRef.add({
             uid,
+            displayName: displayName,
             text: value,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
@@ -41,8 +42,8 @@ export const ChatRoom = () => {
                 <div ref={bottom}/>
             </main>
 
-            <form onSubmit={sendMessage}>
-                <input value={value} onChange={(e) => setValue(e.target.value)} />
+            <form className="chat-form" onSubmit={sendMessage}>
+                <input className="chat-input" value={value} onChange={(e) => setValue(e.target.value)} />
 
                 <button type="submit">🐱</button>
             </form>
