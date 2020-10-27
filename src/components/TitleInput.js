@@ -5,7 +5,7 @@ export const TitleInput = (props) => {
 
     const [formVal, setFormVal] = useState(value)
 
-    const [focused, setFocused] = useState(false)
+    const [focused, setFocused] = useState(true)
 
     useEffect(() => {
         setFormVal(value)
@@ -25,7 +25,7 @@ export const TitleInput = (props) => {
                     <input value={formVal} 
                     autoFocus
                     onChange={e => setFormVal(e.target.value)}
-                    onBlur={() => setFocused(false)} />
+                    onBlur={() => setFocused(true)} />
                 </form>
                 ): <p>{value}</p>}
 

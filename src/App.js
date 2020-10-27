@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from './services/db'
 import { ChatRoom } from './components/ChatRoom'
 import { TitleInput } from './components/TitleInput'
-import { uniqueNamesGenerator, Config, adjectives, colors, animals } from 'unique-names-generator';
+import { uniqueNamesGenerator, adjectives, animals } from 'unique-names-generator';
 
 
 const generateName = () => {
