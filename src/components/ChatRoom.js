@@ -50,7 +50,7 @@ export const ChatRoom = () => {
                 <div className="nes-field d-flex">
                     <input type="text" id="name_field" className="nes-input" placeholder="Message" value={value} onChange={(e) => setValue(e.target.value)} />
                     <button type="submit" className="nes-btn is-primary">
-                        <span role="img">🚀</span>
+                        <span role="img" aria-label="rocket">🚀</span>
                     </button>
                 </div>
             </form>
