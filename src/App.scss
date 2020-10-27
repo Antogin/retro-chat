@@ -1,0 +1,102 @@
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-1 {
+    // flex: 1;
+}
+
+// ness css overides:
+.nes-balloon.is-dark,
+.nes-dialog.is-rounded {
+    border-image-repeat: stretch;
+}
+.nes-container.is-dark {
+    margin: 0 4px;
+}
+.nes-balloon {
+    max-width: 100%;
+    > P {
+        word-wrap: break-word;
+    }
+}
+
+.chat-room {
+    color: #fff;
+    background-color: #212529;
+    border-color: white;
+
+    > section {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: calc(100vh - 162px);
+    }
+}
+
+.fill {
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialog-shadow {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog {
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: block;
+    width: -moz-fit-content;
+    min-width: 380px;
+    width: -webkit-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: -webkit-fit-content;
+    height: fit-content;
+    padding: 1em;
+    margin: auto;
+    color: #000;
+    background: #fff;
+    border: solid;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.sign-in {
+    display: flex;
+    justify-content: space-evenly;
+}

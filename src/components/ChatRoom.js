@@ -21,6 +21,10 @@ export const ChatRoom = () => {
 
         const { uid, displayName } = auth.currentUser;
 
+        if (value === '') {
+            return
+        }
+
         await msgRef.add({
             uid,
             displayName: displayName,
@@ -33,38 +37,21 @@ export const ChatRoom = () => {
     }
 
     return (
-        <>
-            {/* <main>
-                {messages && messages.reverse().map(msg => {
-                    return <Message key={msg.id} {...msg} />
-                })}
-
-                <div ref={bottom}/>
-            </main> */}
-
-
-            <div>
-                <section class="nes-container is-dark">
-                    <section class="message-list">
-                        <div class="message -left">
-                            {/* <i class="nes-bcrikko" /> */}
-                            <div class="nes-balloon from-left is-dark">
-                                <p>Hello NES.css</p>
-                            </div>
-                        </div>
-                        <div class="message -right">
-                            <div class="nes-balloon from-right is-dark">
-                                <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
-                            </div>
-                        </div>
-                    </section>
+        <div className="chat-room">
+            <section className="nes-container is-dark">
+                <section className="message-list">
+                    {messages && messages.reverse().map(msg => {
+                        return <Message key={msg.id} {...msg} />
+                    })}
+                    <div ref={bottom} />
                 </section>
-            </div >
+            </section>
             <form className="chat-form" onSubmit={sendMessage}>
-                <input className="chat-input" value={value} onChange={(e) => setValue(e.target.value)} />
-
-                <button type="submit">🐱</button>
+                <div className="nes-field d-flex">
+                    <input type="text" id="name_field" className="nes-input" placeholder="Message" value={value} onChange={(e) => setValue(e.target.value)} />
+                    <button type="submit" className="nes-btn is-primary">🚀</button>
+                </div>
             </form>
-        </>
+        </div>
     )
 }

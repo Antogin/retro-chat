@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from './services/db'
 import { ChatRoom } from './components/ChatRoom'
+import { SignIn } from './components/SignIn'
+import { useModal } from './hooks/useModal'
 import { TitleInput } from './components/TitleInput'
 import { uniqueNamesGenerator, adjectives, animals } from 'unique-names-generator';
 
@@ -23,43 +25,35 @@ function App() {
 
   const [user] = useAuthState(auth);
 
-  const [displayName, setDisplayName] = useState('')
+  const { showModal, RenderModal } = useModal()
 
   useEffect(() => {
     console.log(user)
-    if (!user) {
-      auth.signInAnonymously()
-    } else if (!user.displayName) {
-      const name = generateName()
 
-      user.updateProfile({
-        displayName: name
-      })
-      setDisplayName(name)
+    if (user) {
 
-    } else {
-      setDisplayName(user.displayName)
     }
   }, [user])
 
-
-
-  const onChangeName = useCallback((val) => {
-    user.updateProfile({
-      displayName: val
-    })
-
-    setDisplayName(val)
-  }, [user])
+  const signOut = () => {
+    auth.signOut()
+  }
 
   return (
     <div className="App">
-      <header className="App-header">
-        {/* CHAT <TitleInput onSubmit={onChangeName} value={displayName} /> */}
+      <header className="App-header nes-container is-dark">
+        <div>CHAT</div> {user ? <button className="nes-btn is-success" onClick={signOut}>Sign Out</button> : null}
       </header>
-      <section>
-        {user ? <ChatRoom /> : null}
+      <section className="chat-container">
+        {user ? <ChatRoom /> : <section className="nes-container is-dark fill">
+          <button className="nes-btn is-success" onClick={showModal}>Sign In</button>
+        </section>}
       </section>
+      <RenderModal title="Sign In Method">
+        <SignIn />
+      </RenderModal>
+      <div id='modal-root' />
+
     </div>
   );
 }

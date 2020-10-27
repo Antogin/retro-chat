@@ -5,14 +5,16 @@ export const Message = (props) => {
     const { text, uid, displayName } = props;
 
     const ownMsg = uid === auth.currentUser.uid;
-    const msgClass = ownMsg ? 'sent' : 'received';
+    const msgClass = ownMsg ? 'right' : 'left';
 
     return (
-        <div className={`message ${msgClass}`}>
-            <p className="message-text">
-                {ownMsg ? null : <div className="">{displayName}</div>}
-                {text}
-            </p>
+        <div className={`message -${msgClass}`}>
+            {ownMsg ? null : <div className="displayName">
+                {displayName}
+            </div>}
+            <div className={`nes-balloon from-${msgClass} is-dark`}>
+                <p>{text}</p>
+            </div>
         </div>
     )
 }
