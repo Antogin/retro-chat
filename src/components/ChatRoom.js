@@ -49,7 +49,9 @@ export const ChatRoom = () => {
             <form className="chat-form" onSubmit={sendMessage}>
                 <div className="nes-field d-flex">
                     <input type="text" id="name_field" className="nes-input" placeholder="Message" value={value} onChange={(e) => setValue(e.target.value)} />
-                    <button type="submit" className="nes-btn is-primary">🚀</button>
+                    <button type="submit" className="nes-btn is-primary">
+                        <span role="img">🚀</span>
+                    </button>
                 </div>
             </form>
         </div>

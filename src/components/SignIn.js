@@ -6,15 +6,13 @@ export const SignIn = ({ closeModal }) => {
 
     const signInGitHub = async () => {
         const provider = new firebase.auth.GithubAuthProvider();
-        auth.signOut()
-        const result = await auth.signInWithPopup(provider);
+        await auth.signInWithPopup(provider);
         closeModal()
     }
 
     const signInGoogle = async () => {
         const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signOut()
-        const result = await auth.signInWithPopup(provider);
+        await auth.signInWithPopup(provider);
         closeModal()
     }
     return (
