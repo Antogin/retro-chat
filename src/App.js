@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        CHAT <TitleInput onSubmit={onChangeName} value={displayName} />
+        {/* CHAT <TitleInput onSubmit={onChangeName} value={displayName} /> */}
       </header>
       <section>
         {user ? <ChatRoom /> : null}
